@@ -1,0 +1,9 @@
+#Ignore those folders and files
+
+frontend/node_modules
+frontend/src
+src
+.env
+*.json
+README.md
+db.sqlite3

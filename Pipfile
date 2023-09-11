@@ -1,0 +1,23 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+asgiref = "==3.7.2"
+django-cors-headers = "==4.2.0"
+dnspython = "==2.4.1"
+gunicorn = "==21.2.0"
+sqlparse = "==0.4.4"
+whitenoise = "==6.5.0"
+python-dotenv = "==1.0.0"
+django = "==4.2.4"
+packaging = "==23.1"
+psycopg2-binary = "==2.9.7"
+typing-extensions = "==4.7.1"
+coverage = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "*"
