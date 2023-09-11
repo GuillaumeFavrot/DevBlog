@@ -7,3 +7,4 @@ src
 *.json
 README.md
 db.sqlite3
+nginx/certapp
