@@ -278,3 +278,31 @@ This option should be set to False in prodution.
 #### Removing Adminer for production
 
 + To remove Adminer simply remove is from the docker-compose file.
+
+
+
+## SSL certificate generation
+
+CD into certapp folder
+
+modify the nginx conf file to add you domain name
+ 
+docker compose up -d
+
+check that nginx is running
+
+ensure that the domain name points to the running nginx server
+
+run the following command:
+docker compose run --rm  certbot certonly --webroot --webroot-path /var/www/certbot/ --dry-run -d example.org
+
+It should return "The dry run was successful"
+
+Run this command without the dry run argument to create ssl certificates
+docker compose run --rm  certbot certonly --webroot --webroot-path /var/www/certbot/ -d example.org
+
+This version of the app will take the certificates created from this process and add them to the nginx image so it might be necessary to go into the main directory of the app and run the following command :
+
+sudo chmod -R 0777 nginx
+
+

@@ -38,4 +38,6 @@ db.sqlite3
 # production
 /frontend/build
 
-
+#Proxy
+/nginx/certapp/certbot/conf/*
+/nginx/certapp/certbot/www/*
