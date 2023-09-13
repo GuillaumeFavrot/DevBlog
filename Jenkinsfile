@@ -63,6 +63,7 @@ pipeline {
             }
         }
         stage('post-deployment') {
+            
             steps {
                 echo "Removal of all images"
                 sh '''
