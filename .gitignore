@@ -41,3 +41,5 @@ db.sqlite3
 #Proxy
 /nginx/certapp/certbot/conf/*
 /nginx/certapp/certbot/www/*
+
+# misc
