@@ -38,6 +38,6 @@ class Article(Post):
 
 class Website(Post):
     released_at: datetime = models.DateTimeField()
-    favicon: ImageField = models.ImageField(upload_to='images/', blank=True, height_field=32, width_field=32)
+    favicon: ImageField = models.ImageField(upload_to='images/', blank=True)
     git_repo: str = models.URLField()
     url: str = models.URLField()

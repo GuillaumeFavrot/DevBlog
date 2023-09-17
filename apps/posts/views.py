@@ -5,32 +5,9 @@ from json import loads
 
 @csrf_exempt
 class post_crud_controller():
-    """This class handles the CRUD operations for posts."""
+    """This class handles the CRUD operations for articles."""
     
     def read_all(request) -> JsonResponse:
         posts = Article.objects.all()
         posts_list = [item.__to_dict__() for item in list(posts)]
         return JsonResponse(posts_list, safe=False)
-    
-    @csrf_exempt
-    def create(request) -> HttpResponse:
-        data = loads(request.body)
-        post = Article(text=data['text'])
-        post.save()
-        return HttpResponse(status=200)
-    
-    @csrf_exempt
-    def update(request) -> HttpResponse:
-        data = loads(request.body)
-        post = Article.objects.get(_id = data['_id'])
-        post.set_text(data['text'])
-        post.save()
-        return HttpResponse(status=200)
-        
-    @csrf_exempt
-    def delete(request) -> HttpResponse:
-        data = loads(request.body)
-        print(data)
-        post = Article.objects.get(_id = data['id'])
-        post.delete()
-        return HttpResponse(status=200)
