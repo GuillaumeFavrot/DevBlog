@@ -7,45 +7,41 @@
         @apply mx-auto;
     }
 
-    .card {
+    .page-title {
+        @apply text-4xl font-bold text-center mb-4;
+    }
+
+    .article-card-container {
         @apply container;
         border-radius: theme('borderRadius.lg');
         padding: theme('spacing.6');
         box-shadow: theme('boxShadow.xl');
     }
 
-    .card-title {
+    .article-card-title {
         @apply text-2xl font-bold text-center mb-2;
     }
 
-    .simple-form {
-        @apply container flex flex-col my-2;
+    .article-card-content {
+        @apply text-lg text-justify mb-2;
     }
 
-    .form-group {
-        @apply mb-1 flex;
+    .tags-container {
+        @apply flex flex-wrap;
     }
 
-    .form-title {
-        @apply block mb-1 text-center font-bold;
+    .tag-container {
+        @apply flex flex-wrap mb-1 ml-1 p-1;
+        border-radius: 1rem;
+        
     }
 
-    .form-input {
-        @apply block w-full p-1 mr-1;
-        border-radius: theme('borderRadius.md');
-        border: 1px solid theme('colors.gray.300');
+    .tag-image {
+        @apply flex flex-wrap;
+        height: 24px;
     }
 
-    .btn {
-        @apply block p-1 rounded-md;
-        width: fit-content;
-    }
-
-    .btn-primary {
-        @apply bg-blue-950 text-white;
-    }
-
-    .btn-danger {
-        @apply bg-red-900 text-white;
+    .tag-name {
+        @apply ml-1 mr-1;
     }
 }

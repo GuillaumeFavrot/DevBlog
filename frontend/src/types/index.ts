@@ -1,21 +1,35 @@
 /* istanbul ignore file */
-export interface Article {
-    id: number,
-    title_fr: string
-    title_en: string
-    header_image: string
+
+// Article types
+
+export interface AbstractArticle {
+    title: string
     tags: Tag[]
-    user: string
-    content_fr: string
-    content_en: string
-    abstract_fr: string
-    abstract_en: string
+    content: string
 }
 
-export type Articles = Article[]
+export type AbstractArticles = AbstractArticle[]
+
+export interface ArticleCardProp {
+    article: AbstractArticle
+}
+
+
+// Tag types
 
 export interface Tag {
-    id: number,
-    name_fr: string,
-    name_en: string
+    icon: string,
+    name: string,
+    background_color: string
+    text_color: string
+}
+
+export type Tags = Tag[]
+
+export interface TagsListProp {
+    tags: Tags
+}
+
+export interface TagComponentProp {
+    tag: Tag
 }
