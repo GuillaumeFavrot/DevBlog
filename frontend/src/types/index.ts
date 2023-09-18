@@ -33,3 +33,26 @@ export interface TagsListProp {
 export interface TagComponentProp {
     tag: Tag
 }
+
+// Button types
+
+export interface ButtonParams {
+    content : string | React.JSX.Element
+    visible: boolean
+    onClickFunction?: Function
+    ariaLabel?: string
+    text_color?: string
+    background_color?: string
+}
+
+export interface ButtonProps {
+    buttonParams: ButtonParams
+}
+
+// View payload
+
+export interface viewPayload {
+    page?: string
+    language?: string
+    dark?: boolean
+}
