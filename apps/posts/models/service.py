@@ -3,18 +3,18 @@ from apps.posts.models.post.model import Article
 class ArticleService():
     """This class handles querrysets operations for the Article model."""
     
-    def get_all_with_tags() -> list[dict] :
+    def get_all() -> list[dict] :
         """Get all articles with their tags."""
 
         articles = Article.objects.all()
         result = []
 
         for article in articles:
-            tags = [tag.__to_dict__() for tag in article.tags.all()]
-            user = article.user.username
-            dict_article = article.__to_dict__()
-            dict_article['tags'] = tags
-            dict_article['user'] = user
+            dict_article = {
+                'title': article.title_fr,
+                'content': article.content_fr,
+                'tags': [tag.__to_dict__() for tag in article.tags.all()]
+            }
             result.append(dict_article)
 
         print(result)

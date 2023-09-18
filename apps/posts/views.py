@@ -7,5 +7,5 @@ class post_crud_controller():
     """This class handles the CRUD operations for articles."""
     
     def read_all(request) -> JsonResponse:
-        articles = ArticleService.get_all_with_tags()
+        articles = ArticleService.get_all()
         return JsonResponse(articles, safe=False)
