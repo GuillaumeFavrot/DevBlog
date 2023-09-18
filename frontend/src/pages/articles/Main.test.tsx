@@ -3,20 +3,20 @@ import '@testing-library/jest-dom'
 import { render } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { store } from '../../state/store';
-import Main from './index';
+import Articles from './index';
 
 let component: any;
 
-describe('Main', () => {
+describe('Articles', () => {
     beforeEach(() => {
         component = render(
             <Provider store={store}>
-                <Main />
+                <Articles />
             </Provider>
         );
     });
 
-    it('Should properly render the DOM tree and display the "API Tester" title', () => {
-      	expect(component.getByText(/API Tester/i)).toBeInTheDocument();
+    it('Should properly render the DOM tree and display the "Articles" title', () => {
+      	expect(component.getByText(/Articles/i)).toBeInTheDocument();
     });
 })

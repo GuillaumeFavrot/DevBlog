@@ -2,8 +2,8 @@
 
 from django.contrib import admin
 
-from apps.posts.models.post import Article, Website
-from apps.posts.models.tag import Tag
+from apps.posts.models.post.model import Article, Website
+from apps.posts.models.tag.model import Tag
 
 admin.site.register(Article)
 admin.site.register(Website)

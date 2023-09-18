@@ -1,12 +1,10 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import { apiSlice } from './features/api';
-import requestStatusReducer from './features/requestStatus';
 
 export const setupStore = (preloadedState: any) => {
   return configureStore({
     reducer: {
-      [apiSlice.reducerPath]: apiSlice.reducer,
-      requestStatus: requestStatusReducer,
+      [apiSlice.reducerPath]: apiSlice.reducer
     },
     preloadedState,
     middleware: (getDefaultMiddleware) => getDefaultMiddleware({immutableCheck: false,serializableCheck: false,}).concat(apiSlice.middleware),

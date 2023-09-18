@@ -1,11 +1,11 @@
 import React from 'react';
-import Main from '../pages/main';
+import Articles from '../pages/articles';
 
 export default function App() {
   return (
     <>    
       <div>
-          <Main />      
+          <Articles />      
       </div> 
     </>
 

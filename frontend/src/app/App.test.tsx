@@ -5,12 +5,12 @@ import { Provider } from 'react-redux';
 import { store } from '../state/store';
 import App from './App';
 
-test('Should properly render the DOM tree and display the "API Tester" title', () => {
+test('Should properly render the DOM tree and display the "Articles" title', () => {
   const { getByText } = render(
     <Provider store={store}>
       <App />
     </Provider>
   );
 
-  expect(getByText(/API Tester/i)).toBeInTheDocument();
+  expect(getByText(/Articles/i)).toBeInTheDocument();
 });

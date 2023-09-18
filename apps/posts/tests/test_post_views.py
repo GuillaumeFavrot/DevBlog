@@ -1,5 +1,5 @@
 from django.test import TestCase, Client
-from apps.posts.models import Post
+from apps.posts.models.post.model import Post
 import json
 
 class PostCrudControllerTestCase(TestCase):

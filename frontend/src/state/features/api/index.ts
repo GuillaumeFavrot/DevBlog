@@ -1,6 +1,7 @@
 // Import the RTK Query methods from the React-specific entry point
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { Post, Posts } from '../../../types';
+import { Articles } from '../../../types'
+
 
 let url = ''
   // If no base URL (or an empty string) is given the main app address will be used. In production this is fine because the main Heroku app address serves the Django app.
@@ -10,7 +11,7 @@ let url = ''
 if(process.env.NODE_ENV === 'development') {
   url = 'http://127.0.0.1:8000'
 } else if (process.env.NODE_ENV === 'test') {
-  url = 'https://drp.fakeapi.com'
+  url = 'https://devblog.fakeapi.com'
 }
 
 
@@ -23,47 +24,17 @@ export const apiSlice = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: url }),
 
   // The "endpoints" represent operations and requests for this server
-  tagTypes: ['Post'],
+  tagTypes: ['Article'],
   endpoints: builder => ({
     
-    getPosts: builder.query<Posts, void>({
+    getArticles: builder.query<Articles, void>({
       query: () => '/posts/',
-      providesTags: ['Post']
-    }),
-
-    addPost: builder.mutation<void, Post>({
-      query: (post: Post) => ({
-        url: '/posts/add/',
-        method: 'POST',
-        body: post
-      }),
-      invalidatesTags: ['Post']
-    }),
-
-    updatePost: builder.mutation<void, Post>({
-      query: (post: Post) => ({
-        url: `/posts/update/`,
-        method: 'PUT',
-        body: post
-      }),
-      invalidatesTags: ['Post']
-    }),
-
-    deletePost: builder.mutation<void, number>({
-      query: (id: number) => ({
-        url: `/posts/delete/`,
-        method: 'DELETE',
-        body: {id}
-      }),
-      invalidatesTags: ['Post']
+      providesTags: ['Article']
     })
   })
 })
 
 // Export the auto-generated hooks for the API endpoints
 export const { 
-  useGetPostsQuery,
-  useAddPostMutation,
-  useUpdatePostMutation,
-  useDeletePostMutation
+  useGetArticlesQuery
 } = apiSlice

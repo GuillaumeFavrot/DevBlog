@@ -1,5 +1,5 @@
 from django.test import TestCase
-from apps.posts.models import Post
+from apps.posts.models.post.model import Post
 
 class PostModelTestCase(TestCase):
     """This test class handles the unit testing of the Post model."""
