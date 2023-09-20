@@ -64,4 +64,9 @@
     .tag-name {
         @apply ml-1 mr-1;
     }
+
+    .page-counter {
+        @apply flex flex-row justify-between text-xl font-bold ;
+        width: 7rem;
+    }
 }

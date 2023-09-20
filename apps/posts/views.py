@@ -1,16 +1,17 @@
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse, FileResponse  
 from apps.posts.models.service import ArticleService
+from json import loads
 
-@csrf_exempt
 class article_controller():
     """This class handles the CRUD operations for articles."""
     
+    @csrf_exempt
     def read_all(request) -> JsonResponse:
-        articles = ArticleService.get_all()
+        data = loads(request.body)
+        articles = ArticleService.get_all(data)
         return JsonResponse(articles, safe=False)
 
-@csrf_exempt
 class image_controller():
     """This class handles the image servicing."""
 

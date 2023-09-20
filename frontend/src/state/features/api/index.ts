@@ -1,6 +1,7 @@
 // Import the RTK Query methods from the React-specific entry point
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { AbstractArticles } from '../../../types'
+import { RootState } from '../../store'
 
 
 let url = ''
@@ -27,8 +28,12 @@ export const apiSlice = createApi({
   tagTypes: ['Article'],
   endpoints: builder => ({
     
-    getArticles: builder.query<AbstractArticles, void>({
-      query: () => '/posts/articles/',
+    getArticles: builder.query<AbstractArticles, number>({
+      query: (req) => ({
+        url : '/posts/articles/',
+        method: 'POST',
+        body: req
+      }),
       providesTags: ['Article']
     })
   })

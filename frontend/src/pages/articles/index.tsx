@@ -1,5 +1,6 @@
 import React from 'react';
 import ArticleList from '../../components/logical/articleList';
+import PageCounter from '../../components/utility/pageCounter';
 import { useAppSelector } from '../../hooks'
 import { selectPage } from '../../state/features/view'
 
@@ -20,6 +21,8 @@ export default function Articles() {
 					<hr />
 
 					<ArticleList />
+
+					<PageCounter />
 		</div>
 
     )

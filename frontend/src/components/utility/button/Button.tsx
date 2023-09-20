@@ -5,12 +5,9 @@ function Button({ buttonParams }: ButtonProps) {
 
     let background_color: string = ''
 
-    let text_color: string = '#FFFFFF'
-
-    let hover_text_color: string = '#000000'
+    let text_color: string = '#000000'
 
     let visibility: string = 'block'
-
 
     if(buttonParams.background_color) {
         background_color = buttonParams.background_color
@@ -20,7 +17,7 @@ function Button({ buttonParams }: ButtonProps) {
         text_color = buttonParams.text_color
     }    
     
-    if (!buttonParams.visible) {
+    if (buttonParams.visible === false) {
         visibility = 'none'
     }
 

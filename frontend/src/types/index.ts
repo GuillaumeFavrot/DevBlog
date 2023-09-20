@@ -8,10 +8,18 @@ export interface AbstractArticle {
     content: string
 }
 
-export type AbstractArticles = AbstractArticle[]
-
+export interface AbstractArticles {
+    articles: AbstractArticle[]
+    page: number
+    total_pages: number
+}
 export interface ArticleCardProp {
     article: AbstractArticle
+}
+
+export interface ArticlesRequest {
+    page: number;
+    lang: string;
 }
 
 
@@ -39,7 +47,7 @@ export interface TagComponentProp {
 
 export interface ButtonParams {
     content : string | React.JSX.Element
-    visible: boolean
+    visible?: boolean
     onClickFunction?: Function
     ariaLabel?: string
     text_color?: string
@@ -56,4 +64,6 @@ export interface viewPayload {
     page?: string
     language?: string
     dark?: boolean
+    articlePage?: number
+    articleTotalPages?: number
 }

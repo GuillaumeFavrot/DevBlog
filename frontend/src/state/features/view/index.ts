@@ -7,7 +7,9 @@ export const viewSlice = createSlice({
     initialState: {
         page: 'home',
         language: 'FR',
-        darkMode: true
+        darkMode: true,
+        articleTotalPages: 1,
+        articlePage: 1
     },
     reducers: {
         updatePage: (state, action: PayloadAction<viewPayload>) => {
@@ -25,12 +27,24 @@ export const viewSlice = createSlice({
                 state.darkMode = action.payload.dark
             }
         },
+        updateArticlePage: (state, action: PayloadAction<viewPayload>) => {
+            if (action.payload.articlePage !== undefined) {
+                state.articlePage = action.payload.articlePage
+            }
+        },
+        updateArticleTotalPages: (state, action: PayloadAction<viewPayload>) => {
+            if (action.payload.articleTotalPages !== undefined) {
+                state.articleTotalPages = action.payload.articleTotalPages
+            }
+        },
     },
 })
 
 export const selectPage = (state: RootState) => state.view.page
 export const selectLanguage = (state: RootState) => state.view.language
 export const selectDarkMode = (state: RootState) => state.view.darkMode
+export const selectArticlePage = (state: RootState) => state.view.articlePage
+export const selectArticleTotalPages = (state: RootState) => state.view.articleTotalPages
 
-export const {updatePage, updateLanguage, updateTheme} = viewSlice.actions
+export const {updatePage, updateLanguage, updateTheme, updateArticlePage, updateArticleTotalPages} = viewSlice.actions
 export default viewSlice.reducer
