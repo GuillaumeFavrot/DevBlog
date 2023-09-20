@@ -17,7 +17,5 @@ class ArticleService():
             }
             result.append(dict_article)
 
-        print(result)
-
         return result
     
