@@ -19,6 +19,7 @@ export interface ArticleCardProp {
 
 export interface Tag {
     icon: string,
+    path: string,
     name: string,
     background_color: string
     text_color: string
