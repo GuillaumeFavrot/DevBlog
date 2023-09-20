@@ -28,7 +28,7 @@ export const apiSlice = createApi({
   endpoints: builder => ({
     
     getArticles: builder.query<AbstractArticles, void>({
-      query: () => '/posts/',
+      query: () => '/posts/articles/',
       providesTags: ['Article']
     })
   })

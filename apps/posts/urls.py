@@ -3,6 +3,6 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.post_crud_controller.read_all, name='read_all'),
-    path('icon/', views.post_crud_controller.get_icon, name='get_icon')
+    path('articles/', views.article_controller.read_all, name='read_all'),
+    path('icons/', views.image_controller.get_tag_icon, name='get_tag_icon')
 ]

@@ -1,7 +1,7 @@
 from django.db import models
 from django.db.models.fields.files import ImageField
 
-tag_images_storage = 'frontend/public/images/tags/'
+tag_images_storage = 'assets/icons/'
 
 class Tag(models.Model):
     icon: ImageField = models.ImageField(upload_to=tag_images_storage, blank=True)

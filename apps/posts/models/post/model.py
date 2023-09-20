@@ -8,7 +8,7 @@ class Post(models.Model):
     """Post model"""
     title_fr: str = models.CharField(max_length=255)
     title_en: str = models.CharField(max_length=255)
-    header_image: ImageField = models.ImageField(upload_to='frontend/public/images/', blank=True)
+    header_image: ImageField = models.ImageField(upload_to='assets/images/', blank=True)
     tags: list[Tag] = models.ManyToManyField(Tag, related_name='%(app_label)s_%(class)s_related')
     user: str = models.ForeignKey(User, related_name='%(app_label)s_%(class)s_related', on_delete=models.PROTECT, limit_choices_to={"is_staff": True})
     content_fr: str = models.TextField()
@@ -52,6 +52,6 @@ class Article(Post):
 
 class Website(Post):
     released_at: datetime = models.DateTimeField()
-    favicon: ImageField = models.ImageField(upload_to='frontend/public/images/', blank=True)
+    favicon: ImageField = models.ImageField(upload_to='assets/icons/', blank=True)
     git_repo: str = models.URLField()
     url: str = models.URLField()
