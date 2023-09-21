@@ -30,11 +30,13 @@ class Post(models.Model):
     
     def __to_dict__(self) -> dict:
         return
-    
 
 class Article(Post):
     created_at: datetime = models.DateTimeField(auto_now_add=True)
     updated_at: datetime = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['-created_at']
 
     def __repr__(self) -> str:
         return f'<Article {self.title_en}>'
@@ -58,3 +60,6 @@ class Website(Post):
     favicon: ImageField = models.ImageField(upload_to='assets/icons/', blank=True)
     git_repo: str = models.URLField()
     url: str = models.URLField()
+
+    class Meta:
+        ordering = ['-released_at']
