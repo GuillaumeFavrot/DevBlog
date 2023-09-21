@@ -3,6 +3,8 @@ from django.db.models.fields.files import ImageField
 from django.contrib.auth.models import User
 from datetime import datetime
 from apps.posts.models.tag.model import Tag
+from tinymce import models as tinymce_models
+
 
 class Post(models.Model):
     """Post model"""
@@ -11,14 +13,15 @@ class Post(models.Model):
     header_image: ImageField = models.ImageField(upload_to='assets/images/', blank=True)
     tags: list[Tag] = models.ManyToManyField(Tag, related_name='%(app_label)s_%(class)s_related')
     user: str = models.ForeignKey(User, related_name='%(app_label)s_%(class)s_related', on_delete=models.PROTECT, limit_choices_to={"is_staff": True})
-    content_fr: str = models.TextField()
-    content_en: str = models.TextField()
+    content_fr: str = tinymce_models.HTMLField()
+    content_en: str = tinymce_models.HTMLField()
     abstract_fr: str = models.TextField(max_length=2550)
     abstract_en: str = models.TextField(max_length=2550)
 
     class Meta:
         abstract = True
 
+    
     def __str__(self) -> str:
         return self.title_en
                                                                                                                                                               
