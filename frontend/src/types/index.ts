@@ -3,9 +3,19 @@
 // Article types
 
 export interface AbstractArticle {
+    id: number
     title: string
     tags: Tag[]
+    abstract: string
+}
+
+export interface Article {
+    title: string
     content: string
+    header_image: string
+    user: string
+    created_at: string
+    updated_at: string
 }
 
 export interface AbstractArticles {
@@ -19,6 +29,11 @@ export interface ArticleCardProp {
 
 export interface ArticlesRequest {
     page: number;
+    lang: string;
+}
+
+export interface ArticleRequest {
+    id: number;
     lang: string;
 }
 
@@ -66,4 +81,5 @@ export interface viewPayload {
     dark?: boolean
     articlePage?: number
     articleTotalPages?: number
+    articleId?: number
 }

@@ -3,6 +3,7 @@ import Navbar from '../components/logical/navbar';
 import Articles from '../pages/articles';
 import Home from '../pages/home';
 import Websites from '../pages/websites';
+import Article from '../pages/article';
 
 export default function App() {
   return (
@@ -11,6 +12,7 @@ export default function App() {
       <Home />
       <Articles />
       <Websites />
+      <Article />
     </div>
 
   )

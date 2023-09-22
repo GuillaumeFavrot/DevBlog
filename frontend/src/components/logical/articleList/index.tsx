@@ -4,14 +4,15 @@ import ArticleCardComponent from '../articleCard';
 import { AbstractArticle } from '../../../types';
 import { useAppDispatch, useAppSelector } from '../../../hooks';
 import { updateArticleTotalPages } from '../../../state/features/view';
-import { selectArticlePage } from '../../../state/features/view';
+import { selectArticlePage, selectLanguage } from '../../../state/features/view';
 
 export default function ArticleList() {
     //State access
     const page = useAppSelector(selectArticlePage)
+    const lang = useAppSelector(selectLanguage)
 
     //Get posts mutation hook setup
-    const { data: articles, isLoading, isFetching, isSuccess, isError, error } = useGetArticlesQuery(page)
+    const { data: articles, isLoading, isFetching, isSuccess, isError, error } = useGetArticlesQuery({page: page, lang: lang})
 
     //Post content setup
     let articleContent: JSX.Element | string = 'No article available in DB'

@@ -9,8 +9,15 @@ class article_controller():
     @csrf_exempt
     def read_all(request) -> JsonResponse:
         data = loads(request.body)
-        articles = ArticleService.get_all(data)
+        print(data)
+        articles = ArticleService.get_all(page=data['page'], lang=data['lang'])
         return JsonResponse(articles, safe=False)
+    
+    @csrf_exempt
+    def read_one(request) -> JsonResponse:
+        data = loads(request.body)
+        article = ArticleService.get_by_id(id=data['id'], lang=data['lang'])
+        return JsonResponse(article, safe=False)
 
 class image_controller():
     """This class handles the image servicing."""

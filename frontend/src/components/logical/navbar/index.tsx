@@ -54,8 +54,8 @@ export default function Navbar() {
 		<div className='navbar'>
 			<button onClick={() => {switchPage('home')}}><h1 className='navbar-home navbar-entry'>Devblog</h1></button>
 			<select onChange={(e) => switchLanguage(e)} className='navbar-entry navbar-dropdown'>
-				<option className='navbar-dropdown-entry'>FR</option>
-				<option className='navbar-dropdown-entry'>EN</option>
+				<option className='navbar-dropdown-entry' value='fr'>FR</option>
+				<option className='navbar-dropdown-entry' value='en'>EN</option>
 			</select>
 			<button onClick={() => {switchPage('articles')}} className='navbar-entry'>Articles</button>
 			<button onClick={() => {switchPage('websites')}} className='navbar-entry'>Websites</button>

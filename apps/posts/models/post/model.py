@@ -28,8 +28,6 @@ class Post(models.Model):
     def __repr__(self) -> str:
         return
     
-    def __to_dict__(self) -> dict:
-        return
 
 class Article(Post):
     created_at: datetime = models.DateTimeField(auto_now_add=True)
@@ -40,20 +38,7 @@ class Article(Post):
 
     def __repr__(self) -> str:
         return f'<Article {self.title_en}>'
-    
-    def __to_dict__(self) -> dict:
-        return {
-            'id': self.id,
-            'title_fr': self.title_fr,
-            'title_en': self.title_en,
-            # 'header_image': self.header_image.path,
-            'content_fr': self.content_fr,
-            'content_en': self.content_en,
-            'abstract_fr': self.abstract_fr,
-            'abstract_en': self.abstract_en,
-            'created_at': self.created_at,
-            'updated_at': self.updated_at,
-        }
+
 
 class Website(Post):
     released_at: datetime = models.DateTimeField()
