@@ -103,4 +103,17 @@
         @apply ml-1 mr-1;
     }
 
+    /* Worksite */
+    .worksite {
+        @apply container flex flex-col items-center max-w-3xl mb-2 ml-2 mr-2 p-3 ;
+    }
+
+    .worksite-image {
+        @apply w-80 object-cover rounded-md mb-5;
+    }
+
+    .worksite-text {
+        @apply text-2xl mt-6;
+    }
+
 }
