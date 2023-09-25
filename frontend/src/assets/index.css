@@ -48,20 +48,28 @@
     /* Articles */
 
     .article-container {
-        @apply container mb-2 ml-2 mr-2;
+        @apply container max-w-3xl mb-2 ml-2 mr-2 p-3;
+    }
+
+    .article-header-image {
+        @apply w-full object-cover rounded-md mb-5;
     }
 
     .article-title {
-        @apply mt-3 text-4xl font-bold text-center mb-2;
+        @apply text-4xl font-bold text-center mb-4;
     }
 
     .article-card-content {
         @apply text-lg text-justify mb-2;
     }
 
+    .article-content > pre {
+        @apply bg-gray-200 rounded-lg p-2;
+    }
+
     /* Article cards */
     .article-card-container {
-        @apply container mb-2 hover:bg-slate-500  bg-slate-400 ml-2 mr-2;
+        @apply container mb-2 max-w-3xl hover:bg-slate-500  bg-slate-400 ml-2 mr-2;
         border-radius: theme('borderRadius.lg');
         padding: theme('spacing.6');
         box-shadow: theme('boxShadow.xl');

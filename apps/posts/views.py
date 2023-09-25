@@ -22,6 +22,10 @@ class article_controller():
 class image_controller():
     """This class handles the image servicing."""
 
-    def get_tag_icon(request):
+    def get_icon(request):
         image = request.GET.get('q')
         return FileResponse(open(f'assets/icons/{image}', 'rb'))
+    
+    def get_image(request):
+        image = request.GET.get('q')
+        return FileResponse(open(f'assets/images/{image}', 'rb'))

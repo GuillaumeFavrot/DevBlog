@@ -35,13 +35,15 @@ class ArticleService():
 
         article = Article.objects.get(id=id)
 
+        dict_article = article.__to_dict__()
+
         result = {
-            'title': article.title_fr if lang == 'fr' else article.title_en,
-            'content': article.content_fr if lang == 'fr' else article.content_en,
-            # 'header_image': article.header_image.path,
-            'user': article.user.username,
-            'created_at': article.created_at,
-            'updated_at': article.updated_at,
+            'title': dict_article["title_fr"] if lang == 'fr' else dict_article["title_en"],
+            'content': dict_article["content_fr"] if lang == 'fr' else dict_article["content_en"],
+            'header_image': dict_article["header_image"],
+            'user': dict_article["user"],
+            'created_at': dict_article["created_at"],
+            'updated_at': dict_article["updated_at"],
         }
 
         return result
