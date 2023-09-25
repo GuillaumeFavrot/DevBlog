@@ -2,9 +2,8 @@ import React from 'react';
 import { useGetArticleQuery } from '../../state/features/api'
 import { useAppSelector } from '../../hooks';
 import { selectArticleId, selectLanguage, selectPage } from '../../state/features/view';
-import parser, { HTMLReactParserOptions, attributesToProps, DOMNode } from 'html-react-parser';
-import { Element } from "domhandler/lib/node";
-import { c } from 'msw/lib/glossary-de6278a9';
+import parser from 'html-react-parser';
+import { a } from 'msw/lib/glossary-de6278a9';
 
 export default function Article() {
     //State access
@@ -18,9 +17,6 @@ export default function Article() {
     //Article content setup
     let content: string | JSX.Element | JSX.Element[] = '';
 
-    //Parser options setup
-    
-
     ////If the request is loading, display a loading message
     if (isLoading) {
         content = 'Loading...'
@@ -29,10 +25,7 @@ export default function Article() {
     ////If the request is successful...
     else if (isSuccess && article) {
         ////and there are posts in the DB, display the posts
-        console.log(typeof article.content)
-        const parsed_article = article.content.replace('class="notranslate"', 'className="notranslate code-block"')
-        console.log(parsed_article)
-        content = parser(parsed_article)
+        content = parser(article.content)
     }
 
     ////If a refetch is triggered by another request, display a loading message
@@ -47,7 +40,7 @@ export default function Article() {
     
     return (
 		<div style={{display: visibility}} className='page'>
-            <div className='article-container'>
+            <div className='article-container' aria-label="article">
                 <h1 className='article-title'>{article?.title}</h1>
                 {image}
                 <div className='article-content'>

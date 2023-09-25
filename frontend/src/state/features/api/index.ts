@@ -14,36 +14,34 @@ if(process.env.NODE_ENV === 'development') {
   url = 'https://devblog.fakeapi.com'
 }
 
-
-
 // Define our single API slice object
 export const apiSlice = createApi({
-  // The cache reducer expects to be added at `state.api` (already default - this is optional)
-  reducerPath: 'api',
-  // All of our requests will have URLs starting with '/fakeApi'
-  baseQuery: fetchBaseQuery({ baseUrl: url }),
+	// The cache reducer expects to be added at `state.api` (already default - this is optional)
+	reducerPath: 'api',
+	// All of our requests will have URLs starting with '/fakeApi'
+	baseQuery: fetchBaseQuery({ baseUrl: url }),
 
-  // The "endpoints" represent operations and requests for this server
-  tagTypes: ['Article'],
-  endpoints: builder => ({
-    
-    getArticles: builder.query<AbstractArticles, ArticlesRequest>({
-      query: (req) => ({
-        url : '/posts/articles/',
-        method: 'POST',
-        body: req
-      }),
-      providesTags: ['Article']
-    }),
+	// The "endpoints" represent operations and requests for this server
+	tagTypes: ['Article'],
+	endpoints: builder => ({
+		
+		getArticles: builder.query<AbstractArticles, ArticlesRequest>({
+			query: (req) => ({
+				url : '/posts/articles/',
+				method: 'POST',
+				body: req
+			}),
+			providesTags: ['Article']
+		}),
 
-    getArticle: builder.query<Article, ArticleRequest>({
-      query: (req) => ({
-        url : '/posts/article/',
-        method: 'POST',
-        body: req
-      })
-    })
-  })
+		getArticle: builder.query<Article, ArticleRequest>({ 
+			query: (req) => ({
+				url : '/posts/article/',
+				method: 'POST',
+				body: req
+		})
+		})
+	})
 })
 
 // Export the auto-generated hooks for the API endpoints

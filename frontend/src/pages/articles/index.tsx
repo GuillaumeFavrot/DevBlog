@@ -15,10 +15,8 @@ export default function Articles() {
 
     return (
 		<div style={{display: visibility}} className='page'>
-				
-					<ArticleList />
-
-					<PageCounter />
+			<ArticleList />
+			<PageCounter />
 		</div>
 
     )

@@ -14,10 +14,12 @@ export default function ArticleCardComponent({ article }: ArticleCardProp) {
 		dispatch(updatePage({page: 'article'}))
 	}
 
+	console.log(article)
+
 	return (
-		<div onClick={() => getArticle()} className='article-card-container' aria-label="post" >
-			<h3 className='article-card-title' aria-label="post-title">{article.title}</h3>
-			<p className='article-card-content' aria-label="post-content">{article.abstract}</p>
+		<div onClick={() => getArticle()} className='article-card-container' aria-label="article" >
+			<h3 className='article-card-title' aria-label="article-title">{article.title}</h3>
+			<p className='article-card-content' aria-label="article-content">{article.abstract}</p>
 			<TagsList tags={article.tags} />
 		</div>
 		

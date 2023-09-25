@@ -5,6 +5,7 @@ import { AbstractArticle } from '../../../types';
 import { useAppDispatch, useAppSelector } from '../../../hooks';
 import { updateArticleTotalPages } from '../../../state/features/view';
 import { selectArticlePage, selectLanguage } from '../../../state/features/view';
+import { a } from 'msw/lib/glossary-de6278a9';
 
 export default function ArticleList() {
     //State access
@@ -13,6 +14,8 @@ export default function ArticleList() {
 
     //Get posts mutation hook setup
     const { data: articles, isLoading, isFetching, isSuccess, isError, error } = useGetArticlesQuery({page: page, lang: lang})
+
+    console.log(isSuccess, articles)
 
     //Post content setup
     let articleContent: JSX.Element | string = 'No article available in DB'
@@ -32,6 +35,8 @@ export default function ArticleList() {
     if (isLoading) {
         articleContent = 'Loading...'
     } 
+
+    
     
     ////If the request is successful...
     else if (isSuccess && articles && articles.articles && articles.articles.length > 0) {
@@ -50,7 +55,7 @@ export default function ArticleList() {
 
     return (
         <>
-            <div className={isFetching ? 'opacity-40' : ''}>
+            <div className={isFetching ? 'opacity-40' : ''} aria-label='article-list'>
                 {articles && articleContent}
             </div>
         </>

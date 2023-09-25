@@ -17,6 +17,6 @@ describe('Articles', () => {
     });
 
     it('Should properly render the DOM tree and display the "Articles" title', () => {
-      	expect(component.getByText(/Articles/i)).toBeInTheDocument();
+      	expect(component.getByLabelText('article-list')).toBeInTheDocument();
     });
 })
