@@ -3,10 +3,13 @@
 @tailwind utilities;
 
 @layer components {
+
+    /* Utility classes */
     .container {
         @apply mx-auto;
     }
 
+    /* Navbar */
     .navbar {
         @apply flex flex-wrap items-center justify-between p-6 bg-slate-800;
     }
@@ -27,10 +30,36 @@
         @apply block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white;
     }
 
+    /* Pages */
+    .page {
+        @layer h-100;
+        @apply pt-2 min-h-screen w-screen flex flex-col items-center
+    }
+
     .page-title {
         @apply text-4xl font-bold text-center mb-4 mt-4;
     }
 
+    .page-counter {
+        @apply flex flex-row justify-between text-xl font-bold mb-4 mt-3 ;
+        width: 7rem;
+    }
+
+    /* Articles */
+
+    .article-container {
+        @apply container mb-2 ml-2 mr-2;
+    }
+
+    .article-title {
+        @apply mt-3 text-4xl font-bold text-center mb-2;
+    }
+
+    .article-card-content {
+        @apply text-lg text-justify mb-2;
+    }
+
+    /* Article cards */
     .article-card-container {
         @apply container mb-2 hover:bg-slate-500  bg-slate-400 ml-2 mr-2;
         border-radius: theme('borderRadius.lg');
@@ -46,6 +75,7 @@
         @apply text-lg text-justify mb-2;
     }
 
+    /* Tags */
     .tags-container {
         @apply flex flex-wrap;
     }
@@ -65,8 +95,4 @@
         @apply ml-1 mr-1;
     }
 
-    .page-counter {
-        @apply flex flex-row justify-between text-xl font-bold mb-4 mt-3 ;
-        width: 7rem;
-    }
 }

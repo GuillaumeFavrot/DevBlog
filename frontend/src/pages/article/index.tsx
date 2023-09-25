@@ -15,7 +15,7 @@ export default function Article() {
 
     //Article content setup
     let content = '';
-    
+
     ////If the request is loading, display a loading message
     if (isLoading) {
         content = 'Loading...'
@@ -35,10 +35,10 @@ export default function Article() {
     let visibility = page === 'article' ? 'flex' : 'none'
     
     return (
-		<div style={{display: visibility}} className='pt-2 h-100 min-h-screen w-screen flex flex-col items-center bg-slate-600'>
+		<div style={{display: visibility}} className='page'>
             <div className='article-container'>
                 <h1 className='article-title'>{article?.title}</h1>
-                <div>
+                <div className='article-content'>
                     {parser(content)}
                 </div>
             </div>

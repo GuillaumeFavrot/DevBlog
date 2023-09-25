@@ -10,7 +10,7 @@ export default function Home() {
     let visibility = page === 'home' ? 'flex' : 'none'
 
     return (
-		<div style={{display: visibility}} className='h-screen w-screen flex flex-col items-center bg-slate-600'>		
+		<div style={{display: visibility}} className='page'>		
 		</div>
     )
 }
