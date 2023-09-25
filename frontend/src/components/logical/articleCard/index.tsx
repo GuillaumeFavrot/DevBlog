@@ -1,4 +1,3 @@
-
 import React from 'react';
 import TagsList from '../tagsList';
 import { ArticleCardProp } from '../../../types';
@@ -13,8 +12,6 @@ export default function ArticleCardComponent({ article }: ArticleCardProp) {
 		dispatch(updateArticleId({articleId: article.id}))
 		dispatch(updatePage({page: 'article'}))
 	}
-
-	console.log(article)
 
 	return (
 		<div onClick={() => getArticle()} className='article-card-container' aria-label="article" >

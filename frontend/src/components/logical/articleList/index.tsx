@@ -15,8 +15,6 @@ export default function ArticleList() {
     //Get posts mutation hook setup
     const { data: articles, isLoading, isFetching, isSuccess, isError, error } = useGetArticlesQuery({page: page, lang: lang})
 
-    console.log(isSuccess, articles)
-
     //Post content setup
     let articleContent: JSX.Element | string = 'No article available in DB'
 

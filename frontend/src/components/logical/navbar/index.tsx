@@ -46,19 +46,19 @@ export default function Navbar() {
 	  				</svg>,
 		visible: !dark,
 		onClickFunction: switchMode,
-		ariaLabel: "light_mode",
+		ariaLabel: "dark_mode",
 		text_color:"#FFFFFF",
 	}
 
 	return (
 		<div className='navbar'>
-			<button onClick={() => {switchPage('home')}}><h1 className='navbar-home navbar-entry'>Devblog</h1></button>
-			<select onChange={(e) => switchLanguage(e)} className='navbar-entry navbar-dropdown'>
+			<button onClick={() => {switchPage('home')}}><h1 className='navbar-home navbar-entry' aria-label='home-page-button'>Devblog</h1></button>
+			<select  onChange={(e) => switchLanguage(e)} className='navbar-entry navbar-dropdown' aria-label='language_dropdown'>
 				<option className='navbar-dropdown-entry' value='fr'>FR</option>
 				<option className='navbar-dropdown-entry' value='en'>EN</option>
 			</select>
-			<button onClick={() => {switchPage('articles')}} className='navbar-entry'>Articles</button>
-			<button onClick={() => {switchPage('websites')}} className='navbar-entry'>Websites</button>
+			<button onClick={() => {switchPage('articles')}} className='navbar-entry' aria-label='article-page-button'>Articles</button>
+			<button onClick={() => {switchPage('websites')}} className='navbar-entry' aria-label='website-page-button'>Websites</button>
 			<button className='navbar-entry'><a href='http://localhost:8000/admin/'>Admin area</a></button>
 			<Button buttonParams={darkButtonProps}/>
 			<Button buttonParams={lightButtonProps}/>

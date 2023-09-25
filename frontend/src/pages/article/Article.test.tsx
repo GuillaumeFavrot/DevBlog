@@ -9,8 +9,6 @@ import { renderWithProviders } from '../../tests/test-utils';
 
 let store = setupStore({});
 
-let component: any;
-
 describe('App', () => {
     // Establish API mocking before all tests.
     beforeAll(() => {
