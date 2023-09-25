@@ -1,5 +1,5 @@
 import React from 'react'
-import Button from '../../utility/button/Button'
+import Button from '../../utility/button'
 import { ButtonParams } from '../../../types'
 import { selectDarkMode } from '../../../state/features/view'
 import { useAppSelector, useAppDispatch } from '../../../hooks'

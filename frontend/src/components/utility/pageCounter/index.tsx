@@ -1,10 +1,8 @@
 import React from 'react'
-import { useAppSelector } from '../../../hooks'
+import { useAppSelector, useAppDispatch  } from '../../../hooks'
 import { selectArticleTotalPages, selectArticlePage, updateArticlePage} from '../../../state/features/view'
-import Button from '../button/Button'
+import Button from '../button'
 import { ButtonParams } from '../../../types'
-import { useAppDispatch } from '../../../hooks'
-import { c } from 'msw/lib/glossary-de6278a9'
 
 export default function PageCounter() {
 
@@ -82,4 +80,4 @@ export default function PageCounter() {
             <Button buttonParams={lastButtonParams}/>
         </div>
     )
-    }
+}

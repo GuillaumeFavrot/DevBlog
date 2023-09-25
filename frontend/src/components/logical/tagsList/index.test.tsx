@@ -20,7 +20,6 @@ describe('TagsList', () => {
 			background_color: '#123546',
 			text_color: '#000000'
 		},
-
 	];
 
 	it('renders a list of tags', () => {
