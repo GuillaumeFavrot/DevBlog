@@ -57,6 +57,12 @@ POSTGRES_DB=dbname
 DATABASE_URL=postgresql://username:password@db:5432/dbname
 ```
 
+#### A.4 - Creating the assets folder
+
+Create at the root of the app an asset folder with two sub-folders :
++ icons
++ images
+
 
 ### B - Preparing and launching a developpement environement
 
