@@ -26,9 +26,6 @@ class Post(models.Model):
     def __str__(self) -> str:
         return self.title_en
     
-    def __to_dict__(self) -> dict:
-        return
-    
 
 class Article(Post):
     created_at: datetime = models.DateTimeField(auto_now_add=True)
@@ -36,20 +33,6 @@ class Article(Post):
 
     class Meta:
         ordering = ['-created_at']
-    
-    def __to_dict__(self) -> dict:
-        return {
-            "title_fr": self.title_fr,
-            "title_en": self.title_en,
-            "header_image": self.header_image.name.replace(images_storage, ''),
-            "user": self.user.username,
-            "content_fr": self.content_fr,
-            "content_en": self.content_en,
-            "abstract_fr": self.abstract_fr,
-            "abstract_en": self.abstract_en,
-            "created_at": self.created_at,
-            "updated_at": self.updated_at,
-        }
 
 
 class Website(Post):
@@ -60,20 +43,4 @@ class Website(Post):
 
     class Meta:
         ordering = ['-released_at']
-
-    def __to_dict__(self) -> dict:
-        return {
-            "title_fr": self.title_fr,
-            "title_en": self.title_en,
-            "header_image": self.header_image.name.replace(images_storage, ''),
-            "user": self.user.username,
-            "content_fr": self.content_fr,
-            "content_en": self.content_en,
-            "abstract_fr": self.abstract_fr,
-            "abstract_en": self.abstract_en,
-            "released_at": self.released_at,
-            "favicon": self.favicon.path,
-            "git_repo": self.git_repo,
-            "url": self.url
-        }
 

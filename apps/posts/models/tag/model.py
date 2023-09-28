@@ -13,9 +13,13 @@ class Tag(models.Model):
         return self.name
     
     def __to_dict__(self) -> dict:
+        icon = ''
+        if self.icon:
+            icon = self.icon.path
+
         return {
             'icon': self.icon.name.replace(tag_images_storage, ''),
-            'path': self.icon.path,
+            'path': icon,
             'name': self.name,
             'background_color': self.background_color,
             'text_color': self.text_color

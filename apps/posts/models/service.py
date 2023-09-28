@@ -1,11 +1,16 @@
 from apps.posts.models.post.model import Article
 from django.core.paginator import Paginator
 
+images_storage = 'assets/images/'
+
 class ArticleService():
     """This class handles querrysets operations for the Article model."""
     
     def get_all(page: int, lang: str) -> dict :
         """Get all articles with their tags."""
+
+        print('page: ', page)
+        print('lang: ', lang)
 
         articles = Article.objects.all()
 
@@ -33,17 +38,18 @@ class ArticleService():
     def get_by_id(id: int, lang: str) -> Article:
         """Get an article by its id."""
 
+        print('id: ', id)
+        print('lang: ', lang)
+
         article = Article.objects.get(id=id)
 
-        dict_article = article.__to_dict__()
-
         result = {
-            'title': dict_article["title_fr"] if lang == 'fr' else dict_article["title_en"],
-            'content': dict_article["content_fr"] if lang == 'fr' else dict_article["content_en"],
-            'header_image': dict_article["header_image"],
-            'user': dict_article["user"],
-            'created_at': dict_article["created_at"],
-            'updated_at': dict_article["updated_at"],
+            'title': article.title_fr if lang == 'fr' else article.title_en,
+            'content': article.content_fr if lang == 'fr' else article.content_en,
+            'header_image': article.header_image.name.replace(images_storage, ''),
+            'user': article.user.username,
+            'created_at': article.created_at,
+            'updated_at': article.updated_at,
         }
 
         return result
